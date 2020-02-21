@@ -7,5 +7,6 @@ class SearchController < ApplicationController
     response = conn.get("?title=The Man Who Saw Everything")
 
     parsed = JSON.parse(response.body)
+    @book = parsed["docs"]
   end
 end
