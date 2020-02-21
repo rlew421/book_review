@@ -6,13 +6,8 @@ class BookSearch
   end
 
   def book
-    conn = Faraday.new(url: "http://openlibrary.org/search.json") do |faraday|
-      faraday.adapter Faraday.default_adapter
-    end
-
-    response = conn.get("?title=The Man Who Saw Everything")
-
-    parsed = JSON.parse(response.body)
-    book = parsed["docs"]
+    service = OpenLibraryService.new
+    book_data = service.book_by_title(title)
+    book = Book.new(book_data)
   end
 end
