@@ -1,5 +1,14 @@
 <h1>Search Results</h1>
+<h2>Book</h2>
   <ul class="book">
-    <li class="name"><%= search_results.book.title %></li>
-    <li class="name"><%= search_results.book.author_name %></li>
+    <li class="name">Title: <%= search_results.book.title %></li>
+    <li class="name">Author Name: <%= search_results.book.author_name %></li>
+  </ul>
+
+<h2>Reviews</h2>
+  <ul class="reviews">
+    <% search_results.reviews.each do |review| %>
+      <li> <%= review.summary %></li>
+      <li>Review Publication Date: <%= review.publication_date %> </li>
+    <% end %>
   </ul>
