@@ -11,7 +11,7 @@ RSpec.describe "user can input a book's title into the form and hit search" do
     fill_in :title, with: "The Man Who Saw Everything"
     click_button "Find Book"
 
-    expect(current_path).to eq('/search')
+    expect(current_path).to eq(search_path)
     expect(page).to have_content("The Man Who Saw Everything")
     expect(page).to have_content("Deborah Levy")
   end
