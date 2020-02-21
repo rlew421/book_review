@@ -11,7 +11,7 @@ class OpenLibraryService
   end
 
   def conn
-    conn = Faraday.new(url: "http://openlibrary.org/search.json") do |faraday|
+    Faraday.new(url: "http://openlibrary.org/search.json") do |faraday|
       faraday.adapter Faraday.default_adapter
     end
   end
